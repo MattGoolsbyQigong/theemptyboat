@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hunyuan Qi Therapy — The Empty Boat</title>
+  <meta name="description" content="Hunyuan Qi Therapy with Matt Goolsby. In-person in Tokyo and remote sessions worldwide. A practice rooted in Zhineng Qigong Science.">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: #0D2247;
+      color: #F5F0E8;
+      font-family: 'Cormorant Garamond', serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── NAV ── */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 3rem;
+      border-bottom: 0.5px solid rgba(197,151,58,0.2);
+      position: sticky;
+      top: 0;
+      background: #0D2247;
+      z-index: 100;
+    }
+
+    .nav-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .nav-brand-main {
+      font-family: 'Cinzel', serif;
+      font-size: 14px;
+      letter-spacing: 0.14em;
+      color: #C9973A;
+      text-transform: uppercase;
+    }
+
+    .nav-brand-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 12px;
+      color: #8B9EC7;
+      letter-spacing: 0.06em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    .nav-links a {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px;
+      color: #EDE4D0;
+      letter-spacing: 0.06em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: #C9973A; }
+
+    .nav-cta {
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #C9973A;
+      border: 1px solid #C9973A;
+      padding: 8px 20px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .nav-cta:hover {
+      background: #C9973A;
+      color: #0D2247;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 6rem 3rem 5rem;
+      text-align: center;
+      border-bottom: 0.5px solid rgba(197,151,58,0.15);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      font-family: 'Cinzel', serif;
+      font-size: 9px;
+      letter-spacing: 0.22em;
+      color: #C9973A;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 42px;
+      font-weight: 400;
+      line-height: 1.25;
+      color: #F5F0E8;
+      letter-spacing: 0.04em;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 20px;
+      color: #EDE4D0;
+      line-height: 1.7;
+      max-width: 580px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .hero-tags {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .tag {
+      font-family: 'Cinzel', serif;
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      color: #8B9EC7;
+      text-transform: uppercase;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 14px 36px;
+      border: 1px solid #C9973A;
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      color: #C9973A;
+      text-transform: uppercase;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .btn-primary:hover {
+      background: #C9973A;
+      color: #0D2247;
+    }
+
+    .btn-secondary {
+      display: inline-block;
+      padding: 14px 36px;
+      border: 1px solid rgba(197,151,58,0.3);
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      color: #EDE4D0;
+      text-transform: uppercase;
+      margin-left: 1rem;
+      transition: border-color 0.2s;
+    }
+
+    .btn-secondary:hover { border-color: rgba(197,151,58,0.6); }
+
+    /* ── SECTIONS ── */
+    .section {
+      padding: 5rem 3rem;
+      border-bottom: 0.5px solid rgba(197,151,58,0.15);
+    }
+
+    .section-inner {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .section-inner.wide {
+      max-width: 760px;
+    }
+
+    .section h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 24px;
+      font-weight: 400;
+      color: #F5F0E8;
+      line-height: 1.4;
+      letter-spacing: 0.04em;
+      margin-bottom: 1.75rem;
+    }
+
+    .divider {
+      width: 48px;
+      height: 1px;
+      background: #C9973A;
+      margin: 0 0 2rem;
+    }
+
+    .body-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      color: #EDE4D0;
+      line-height: 1.85;
+      margin-bottom: 1.25rem;
+    }
+
+    .body-text:last-child { margin-bottom: 0; }
+
+    .body-accent {
+      font-style: italic;
+      color: #C9973A;
+    }
+
+    /* ── SESSION STEPS ── */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1px;
+      background: rgba(197,151,58,0.15);
+      margin-top: 2.5rem;
+    }
+
+    .step {
+      background: #0D2247;
+      padding: 1.75rem 1.5rem;
+    }
+
+    .step-n {
+      font-family: 'Cinzel', serif;
+      font-size: 9px;
+      letter-spacing: 0.22em;
+      color: #C9973A;
+      margin-bottom: 0.75rem;
+    }
+
+    .step-t {
+      font-family: 'Cinzel', serif;
+      font-size: 13px;
+      color: #F5F0E8;
+      font-weight: 400;
+      margin-bottom: 0.6rem;
+      letter-spacing: 0.05em;
+    }
+
+    .step-d {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px;
+      color: #8B9EC7;
+      line-height: 1.65;
+    }
+
+    .note-muted {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px;
+      color: #8B9EC7;
+      font-style: italic;
+      margin-top: 1.5rem;
+      line-height: 1.7;
+    }
+
+    /* ── AUDIENCE ── */
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 14px;
+      margin-top: 1.75rem;
+    }
+
+    .aud-card {
+      border: 0.5px solid rgba(197,151,58,0.25);
+      padding: 1.5rem 1.25rem;
+    }
+
+    .aud-icon {
+      font-size: 20px;
+      color: #C9973A;
+      margin-bottom: 0.85rem;
+      display: block;
+    }
+
+    .aud-card p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px;
+      color: #EDE4D0;
+      line-height: 1.65;
+    }
+
+    /* ── BENEFITS ── */
+    .benefit-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 0.85rem 0;
+      border-bottom: 0.5px solid rgba(197,151,58,0.1);
+    }
+
+    .benefit-row:last-child { border-bottom: none; }
+
+    .dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: #C9973A;
+      flex-shrink: 0;
+      margin-top: 10px;
+    }
+
+    .benefit-row p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 17px;
+      color: #EDE4D0;
+      line-height: 1.7;
+    }
+
+    /* ── TWO COL ── */
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2.5rem;
+      margin-top: 0;
+    }
+
+    /* ── FAQ ── */
+    .faq-item {
+      padding: 1.5rem 0;
+      border-bottom: 0.5px solid rgba(197,151,58,0.12);
+    }
+
+    .faq-item:last-child { border-bottom: none; }
+
+    .faq-q {
+      font-family: 'Cinzel', serif;
+      font-size: 13px;
+      color: #C9973A;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.6rem;
+    }
+
+    .faq-a {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 17px;
+      color: #EDE4D0;
+      line-height: 1.75;
+    }
+
+    /* ── CALLOUT ── */
+    .callout {
+      background: #1B3A6B;
+      padding: 5rem 3rem;
+      text-align: center;
+      border-top: 0.5px solid rgba(197,151,58,0.2);
+    }
+
+    .callout h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 26px;
+      font-weight: 400;
+      color: #F5F0E8;
+      letter-spacing: 0.04em;
+      margin-bottom: 1rem;
+    }
+
+    .callout-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 19px;
+      color: #EDE4D0;
+      line-height: 1.7;
+      max-width: 500px;
+      margin: 0 auto 2.5rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0A0F1A;
+      padding: 1.75rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      border-top: 0.5px solid rgba(197,151,58,0.15);
+    }
+
+    .footer-brand {
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      color: #C9973A;
+      letter-spacing: 0.1em;
+    }
+
+    .footer-copy {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 14px;
+      color: #8B9EC7;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      nav { padding: 1.25rem 1.5rem; }
+      .nav-links { gap: 1.25rem; }
+      .nav-links a { font-size: 13px; }
+      .hero { padding: 4rem 1.5rem 3rem; }
+      .hero h1 { font-size: 28px; }
+      .hero-sub { font-size: 17px; }
+      .btn-secondary { margin-left: 0; margin-top: 0.75rem; }
+      .section { padding: 3.5rem 1.5rem; }
+      footer { padding: 1.25rem 1.5rem; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="/" class="nav-brand">
+      <span class="nav-brand-main">The Empty Boat</span>
+      <span class="nav-brand-sub">A Healing Practice</span>
+    </a>
+    <div class="nav-links">
+      <a href="/#about">About</a>
+      <a href="/#sessions">Sessions</a>
+      <a href="/#hyqt">Philosophy</a>
+      <a href="mailto:mattgoolsby.qigong@gmail.com">Contact</a>
+      <a href="https://calendly.com/mattgoolsby-qigong/30min" class="nav-cta">Book a Session</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="eyebrow">Hunyuan Qi Therapy</div>
+    <h1>Your body already knows<br>how to heal.</h1>
+    <p class="hero-sub">A practice that works with your body's natural intelligence — not against it — to restore balance, dissolve pain, and return you to yourself.</p>
+    <div class="hero-tags">
+      <span class="tag">Qi Field Healing</span>
+      <span class="tag">·</span>
+      <span class="tag">In-Person · Tokyo</span>
+      <span class="tag">·</span>
+      <span class="tag">Remote · Worldwide</span>
+    </div>
+    <a href="https://calendly.com/mattgoolsby-qigong/30min" class="btn-primary">Book a free 30-min call</a>
+    <a href="#sessions" class="btn-secondary">Explore sessions</a>
+  </section>
+
+  <!-- WHAT IS IT -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="eyebrow">What is it</div>
+      <h2>Hunyuan Qi Therapy</h2>
+      <div class="divider"></div>
+      <p class="body-text">Hunyuan Qi Therapy is a practice rooted in Zhineng Qigong Science — one of the most sophisticated qigong lineages in modern China, developed by Professor Dr. Pang Ming in the 1980s. It works with Qi, the vital energy that flows through all living things, to support physical healing, emotional balance, and mental clarity.</p>
+      <p class="body-text">Unlike approaches that only address symptoms, HYQT works at the root. It combines the therapist's directed energy work with practical movement, meditation, and breathing methods that become part of your own daily life.</p>
+      <p class="body-text body-accent">Think of it as recharging your body's internal battery — and learning how to keep it full.</p>
+    </div>
+  </section>
+
+  <!-- WHAT TO EXPECT -->
+  <section class="section" id="sessions">
+    <div class="section-inner wide">
+      <div class="eyebrow">What to expect</div>
+      <h2>What happens in a session</h2>
+      <div class="divider"></div>
+      <p class="body-text">Sessions are relaxed, open, and unhurried. Here is what a typical session looks like:</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-n">01</div>
+          <div class="step-t">We talk</div>
+          <div class="step-d">We begin with a short conversation about what you are experiencing and what you would like to shift.</div>
+        </div>
+        <div class="step">
+          <div class="step-n">02</div>
+          <div class="step-t">Energy work</div>
+          <div class="step-d">I establish the Qi field and work with the specific patterns present — physical, emotional, and energetic.</div>
+        </div>
+        <div class="step">
+          <div class="step-n">03</div>
+          <div class="step-t">Guided practice</div>
+          <div class="step-d">I share Zhineng Qigong movements, meditations, or breathing methods tailored to your condition.</div>
+        </div>
+        <div class="step">
+          <div class="step-n">04</div>
+          <div class="step-t">You take it home</div>
+          <div class="step-d">You leave with simple practices to continue on your own. The deepest healing happens in daily life.</div>
+        </div>
+      </div>
+      <p class="note-muted">Sessions are available in person in Taito, Tokyo — or remotely for clients anywhere in the world. Qi is not bound by space.</p>
+    </div>
+  </section>
+
+  <!-- WHO IT'S FOR -->
+  <section class="section">
+    <div class="section-inner wide">
+      <div class="eyebrow">Who it is for</div>
+      <h2>Is this for you?</h2>
+      <div class="divider"></div>
+      <p class="body-text">Hunyuan Qi Therapy may be for you if you are feeling stuck, unwell, or disconnected — and you are open to an approach that works with your whole self, not just one part of you.</p>
+      <div class="audience-grid">
+        <div class="aud-card">
+          <span class="aud-icon">&#9678;</span>
+          <p>Living with chronic pain, illness, or fatigue that has not fully responded to conventional treatment</p>
+        </div>
+        <div class="aud-card">
+          <span class="aud-icon">&#9672;</span>
+          <p>Dealing with stress, anxiety, burnout, or emotional heaviness you cannot seem to shake</p>
+        </div>
+        <div class="aud-card">
+          <span class="aud-icon">&#9673;</span>
+          <p>Going through a difficult life transition and seeking deeper healing and inner stability</p>
+        </div>
+        <div class="aud-card">
+          <span class="aud-icon">&#10022;</span>
+          <p>Curious about energy medicine and ready to explore what is possible beyond the physical</p>
+        </div>
+      </div>
+      <p class="note-muted">No prior knowledge of Qi or Qigong is needed. All you need is openness.</p>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="eyebrow">Benefits</div>
+      <h2>What people experience</h2>
+      <div class="divider"></div>
+      <div class="benefit-row"><div class="dot"></div><p>Reduction in physical pain and chronic tension</p></div>
+      <div class="benefit-row"><div class="dot"></div><p>Calmer, more stable emotional state</p></div>
+      <div class="benefit-row"><div class="dot"></div><p>Improved sleep and restored energy levels</p></div>
+      <div class="benefit-row"><div class="dot"></div><p>Greater mental clarity and inner quiet</p></div>
+      <div class="benefit-row"><div class="dot"></div><p>A sense of groundedness and ease with existence</p></div>
+      <div class="benefit-row"><div class="dot"></div><p>Tools and practices for lasting self-healing</p></div>
+      <div class="benefit-row"><div class="dot"></div><p>Complementary support alongside medical treatment</p></div>
+    </div>
+  </section>
+
+  <!-- MY APPROACH -->
+  <section class="section" id="about">
+    <div class="section-inner wide">
+      <div class="eyebrow">The practitioner</div>
+      <h2>My approach</h2>
+      <div class="divider"></div>
+      <div class="two-col">
+        <div>
+          <p class="body-text">I was not the most robust child. Chronic fatigue, frequent illness, a weaker constitution — this was simply my baseline. I discovered Qigong in my early adulthood and it completely transformed me, from weak to energized and athletic. Since then, my health has been always improving. It is almost as if I am aging in reverse.</p>
+        </div>
+        <div>
+          <p class="body-text">My values are full acceptance. This world pressures us to fight our own nature, to dip into our reserves, to forget who we are. I hold space for you to come home — to your health, to yourself, to ease with existence. In Hunyuan Qi Therapy, we do not treat symptoms. We treat people. Each session is tailored to you and addresses you at your deepest levels.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="eyebrow">Common questions</div>
+      <h2>FAQ</h2>
+      <div class="divider"></div>
+      <div class="faq-item">
+        <div class="faq-q">Do I need to believe in Qi for this to work?</div>
+        <div class="faq-a">No. Many people arrive with skepticism and still experience real results. Openness is more useful than belief — the practice does the rest.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Is this a replacement for medical treatment?</div>
+        <div class="faq-a">No. HYQT works best alongside conventional medicine, not instead of it. Many people find it enhances the effects of other treatments. Always continue working with your doctor.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How does a remote session work?</div>
+        <div class="faq-a">Online sessions are just as effective as in-person ones. Qi is not limited by distance. We connect via video and the session follows the same structure.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How many sessions will I need?</div>
+        <div class="faq-a">This varies by person and condition. Some notice shifts after one session; others benefit from ongoing practice. We will discuss what makes sense for you in the intro call.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How should I prepare?</div>
+        <div class="faq-a">Nothing special is needed. Come as you are. Wear comfortable clothing, find a quiet space if joining remotely, and bring any intentions or questions you have.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="callout">
+    <div class="eyebrow">Begin</div>
+    <h2>Ready to start your healing?</h2>
+    <p class="callout-sub">Begin with a free 30-minute conversation. We will talk about what you are experiencing, answer your questions, and see if this is a good fit.</p>
+    <a href="https://calendly.com/mattgoolsby-qigong/30min" class="btn-primary">Book your free intro call</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-brand">The Empty Boat · A Healing Practice</span>
+    <span class="footer-copy">© 2025 · Tokyo, Japan · Remote sessions available worldwide</span>
+  </footer>
+
+</body>
+</html>
