@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hunyuan Qi Therapy — The Empty Boat</title>
+  <meta name="description" content="Hunyuan Qi Therapy with Matt Goolsby. In-person in Tokyo and remote sessions worldwide. A practice rooted in Zhineng Qigong Science." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400;1,500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --deep-lapis:   #0D2247;
+      --mid-lapis:    #1B3A6B;
+      --bright-lapis: #3D7EC9;
+      --sacred-gold:  #C9973A;
+      --void:         #0A0F1A;
+      --ivory:        #F5F0E8;
+      --warm-ivory:   #EDE4D0;
+    }
+
+    html, body {
+      background: var(--void);
+      color: var(--ivory);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── NAVBAR — matches updated index.html exactly ── */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 3rem;
+      background: rgba(10, 15, 26, 0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201, 151, 58, 0.12);
+    }
+    .nav-logo {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .nav-logo:hover { opacity: 0.75; }
+    .nav-logo-title {
+      font-family: 'Cinzel', serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.12em;
+      color: var(--ivory);
+      text-transform: uppercase;
+      white-space: nowrap;
+      font-weight: 400;
+    }
+    .nav-logo-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      color: var(--sacred-gold);
+      opacity: 0.9;
+      white-space: nowrap;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      color: var(--warm-ivory);
+      text-decoration: none;
+      text-transform: uppercase;
+      opacity: 0.8;
+      transition: opacity 0.2s, color 0.2s;
+      white-space: nowrap;
+      font-weight: 400;
+    }
+    .nav-links a:hover { opacity: 1; color: var(--sacred-gold); }
+    .nav-cta {
+      font-family: 'Cinzel', serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--void);
+      background: var(--sacred-gold);
+      border: 1.5px solid var(--sacred-gold);
+      padding: 0.65rem 1.5rem;
+      border-radius: 2rem;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+      white-space: nowrap;
+      display: inline-block;
+      font-weight: 400;
+    }
+    .nav-cta:hover { background: transparent; color: var(--sacred-gold); }
+
+    /* ── BUTTONS ── */
+    .btn-primary {
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--void);
+      background: var(--sacred-gold);
+      border: 1.5px solid var(--sacred-gold);
+      padding: 0.85rem 1.8rem;
+      border-radius: 2rem;
+      text-decoration: none;
+      transition: background 0.25s, color 0.25s;
+      white-space: nowrap;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: transparent; color: var(--sacred-gold); }
+
+    /* ── HERO — no buttons ── */
+    .hero {
+      padding: 10rem 2rem 7rem;
+      text-align: center;
+      background: linear-gradient(160deg, #0e1e42 0%, #0a1428 50%, #080e1c 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 70%; height: 80%;
+      background: radial-gradient(ellipse, rgba(27,58,107,0.45) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-tagline {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      animation: fadeUp 1.2s 0.1s both;
+    }
+    .hero-tagline-line {
+      width: 28px; height: 1px;
+      background: var(--sacred-gold); opacity: 0.7;
+    }
+    .hero-tagline-text {
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      color: var(--sacred-gold);
+      text-transform: uppercase;
+    }
+    .hero-heading {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2rem, 4vw, 3.8rem);
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      line-height: 1.15;
+      color: var(--ivory);
+      animation: fadeUp 1.2s 0.2s both;
+    }
+    .hero-subheading {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1rem, 1.8vw, 1.5rem);
+      color: var(--sacred-gold);
+      animation: fadeUp 1.2s 0.3s both;
+    }
+    .hero-divider {
+      width: 36px; height: 1px;
+      background: var(--sacred-gold); opacity: 0.5;
+      animation: fadeUp 1.2s 0.38s both;
+    }
+    .hero-body {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+      font-weight: 400;
+      line-height: 1.85;
+      color: var(--warm-ivory);
+      max-width: 520px;
+      opacity: 0.95;
+      animation: fadeUp 1.2s 0.44s both;
+    }
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.6rem;
+      margin-top: 0.5rem;
+      animation: fadeUp 1.2s 0.54s both;
+    }
+    .hero-tag {
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--warm-ivory);
+      border: 1px solid rgba(245,240,232,0.25);
+      padding: 0.45rem 1rem;
+      opacity: 0.7;
+    }
+
+    /* ── SHARED SECTION STYLES ── */
+    .section-eyebrow {
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--sacred-gold);
+      opacity: 0.9;
+    }
+    .section-heading {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      color: var(--ivory);
+      line-height: 1.3;
+    }
+    .section-divider {
+      width: 40px; height: 1px;
+      background: var(--sacred-gold);
+      opacity: 0.5;
+    }
+    .body-p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.05rem, 1.4vw, 1.18rem);
+      font-weight: 400;
+      line-height: 1.85;
+      color: var(--warm-ivory);
+      opacity: 0.9;
+    }
+    .body-p-accent {
+      font-style: italic;
+      color: var(--sacred-gold);
+      opacity: 1;
+    }
+
+    /* ── WHAT IS IT ── */
+    .what {
+      background: var(--void);
+      padding: 7rem 2rem;
+    }
+    .what-inner {
+      max-width: 700px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+    }
+
+    /* ── WHAT TO EXPECT ── */
+    .expect {
+      background: linear-gradient(160deg, #0e1e42 0%, #0a1428 50%, #080e1c 100%);
+      padding: 7rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .expect::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 70%; height: 80%;
+      background: radial-gradient(ellipse, rgba(27,58,107,0.4) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .expect-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+    }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border: 1px solid rgba(245,240,232,0.1);
+      margin-top: 0.5rem;
+    }
+    .step {
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      border-right: 1px solid rgba(245,240,232,0.1);
+      background: rgba(13,34,71,0.08);
+    }
+    .step:last-child { border-right: none; }
+    .step-n {
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--sacred-gold);
+      opacity: 0.8;
+    }
+    .step-t {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(0.85rem, 1.1vw, 1rem);
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      color: var(--ivory);
+    }
+    .step-d {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(0.95rem, 1.2vw, 1.08rem);
+      font-weight: 400;
+      line-height: 1.8;
+      color: var(--warm-ivory);
+      opacity: 0.75;
+    }
+    .expect-note {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1rem, 1.2vw, 1.08rem);
+      font-weight: 400;
+      color: var(--warm-ivory);
+      opacity: 0.6;
+      margin-top: 0.5rem;
+    }
+
+    /* ── WHO IT'S FOR ── */
+    .who {
+      background: var(--void);
+      padding: 7rem 2rem;
+    }
+    .who-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+    }
+    .who-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border: 1px solid rgba(245,240,232,0.1);
+      margin-top: 0.5rem;
+    }
+    .who-card {
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      border-right: 1px solid rgba(245,240,232,0.1);
+      background: rgba(13,34,71,0.08);
+      transition: background 0.3s;
+    }
+    .who-card:last-child { border-right: none; }
+    .who-card:hover { background: rgba(27,58,107,0.25); }
+    .who-glyph {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      color: var(--sacred-gold);
+      opacity: 0.8;
+      line-height: 1;
+    }
+    .who-card p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+      font-weight: 400;
+      line-height: 1.8;
+      color: var(--warm-ivory);
+      opacity: 0.82;
+    }
+    .who-note {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(0.95rem, 1.2vw, 1.08rem);
+      font-weight: 400;
+      color: var(--warm-ivory);
+      opacity: 0.55;
+    }
+
+    /* ── BENEFITS ── */
+    .benefits {
+      background: linear-gradient(160deg, #0e1e42 0%, #0a1428 50%, #080e1c 100%);
+      padding: 7rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .benefits::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60%; height: 80%;
+      background: radial-gradient(ellipse, rgba(27,58,107,0.4) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .benefits-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+    }
+    .benefit-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+    }
+    .benefit-list li {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.05rem, 1.4vw, 1.18rem);
+      font-weight: 400;
+      color: var(--warm-ivory);
+      opacity: 0.88;
+      padding: 1rem 0;
+      padding-left: 1.4rem;
+      position: relative;
+      border-bottom: 1px solid rgba(245,240,232,0.07);
+      line-height: 1.6;
+    }
+    .benefit-list li:last-child { border-bottom: none; }
+    .benefit-list li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      color: var(--sacred-gold);
+      opacity: 0.9;
+    }
+
+    /* ── MY APPROACH ── */
+    .approach {
+      background: var(--void);
+      padding: 7rem 5vw;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .approach-left {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    .approach-right {
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+      padding-top: 0.5rem;
+    }
+
+    /* ── FAQ ── */
+    .faq {
+      background: linear-gradient(160deg, #0e1e42 0%, #0a1428 50%, #080e1c 100%);
+      padding: 7rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .faq::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60%; height: 80%;
+      background: radial-gradient(ellipse, rgba(27,58,107,0.35) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .faq-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+    }
+    .faq-list { display: flex; flex-direction: column; }
+    .faq-item {
+      padding: 1.6rem 0;
+      border-bottom: 1px solid rgba(245,240,232,0.08);
+    }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(0.78rem, 1vw, 0.88rem);
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: var(--sacred-gold);
+      margin-bottom: 0.7rem;
+    }
+    .faq-a {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.05rem, 1.4vw, 1.15rem);
+      font-weight: 400;
+      line-height: 1.85;
+      color: var(--warm-ivory);
+      opacity: 0.85;
+    }
+
+    /* ── BOOKING SECTION ── */
+    .booking {
+      background: linear-gradient(160deg, #0e1e42 0%, #0a1428 55%, #080e1c 100%);
+      padding: 9rem 2rem 7rem;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      position: relative;
+      overflow: hidden;
+    }
+    .booking-glow {
+      position: absolute;
+      top: 30%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 65%; height: 60%;
+      background: radial-gradient(ellipse, rgba(27,58,107,0.5) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .booking-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3.5rem;
+      width: 100%;
+      max-width: 900px;
+    }
+    .booking-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.4rem;
+      text-align: center;
+    }
+    .cal-embed-wrap {
+      width: 100%;
+      border: 1px solid rgba(201, 151, 58, 0.18);
+      background: rgba(10, 15, 26, 0.6);
+      overflow: hidden;
+      min-height: 600px;
+    }
+    .cal-embed-wrap iframe { border: none !important; }
+    .cta-heading {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2.2rem, 5vw, 4.2rem);
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      line-height: 1.1;
+      color: var(--ivory);
+    }
+    .cta-subheading {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1.2rem, 2.2vw, 1.8rem);
+      color: var(--sacred-gold);
+      letter-spacing: 0.04em;
+    }
+    .cta-body {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+      font-weight: 400;
+      line-height: 1.85;
+      color: var(--warm-ivory);
+      opacity: 0.82;
+      max-width: 480px;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: var(--void);
+      border-top: 1px solid rgba(201, 151, 58, 0.15);
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 5vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      text-align: center;
+    }
+    .footer-logo {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .footer-logo:hover { opacity: 0.75; }
+    .footer-logo-title {
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      color: var(--ivory);
+      text-transform: uppercase;
+    }
+    .footer-logo-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      color: var(--sacred-gold);
+      opacity: 0.75;
+    }
+    .footer-nav {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .footer-nav a {
+      font-family: 'Cinzel', serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--warm-ivory);
+      text-decoration: none;
+      opacity: 0.55;
+      transition: opacity 0.2s, color 0.2s;
+    }
+    .footer-nav a:hover { opacity: 1; color: var(--sacred-gold); }
+    .footer-bottom {
+      border-top: 1px solid rgba(245,240,232,0.07);
+      padding: 1.4rem 5vw;
+      text-align: center;
+    }
+    .footer-bottom p {
+      font-family: 'Cinzel', serif;
+      font-size: 0.5rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--warm-ivory);
+      opacity: 0.3;
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      .navbar { padding: 0 1.2rem; height: 68px; }
+      .nav-links { display: none; }
+      .nav-cta { font-size: 0.58rem; padding: 0.55rem 1rem; }
+      .hero { padding: 8rem 1.5rem 5rem; }
+      .what { padding: 4rem 1.5rem; }
+      .expect { padding: 4rem 1.5rem; }
+      .steps-grid { grid-template-columns: 1fr 1fr; }
+      .step { border-bottom: 1px solid rgba(245,240,232,0.1); }
+      .who { padding: 4rem 1.5rem; }
+      .who-grid { grid-template-columns: 1fr 1fr; }
+      .who-card { border-bottom: 1px solid rgba(245,240,232,0.1); }
+      .benefits { padding: 4rem 1.5rem; }
+      .approach { grid-template-columns: 1fr; gap: 2.5rem; padding: 4rem 1.5rem; }
+      .faq { padding: 4rem 1.5rem; }
+      .cta { padding: 5rem 1.5rem; }
+      .booking { padding: 5rem 1.5rem 4rem; }
+      .cal-embed-wrap { min-height: 500px; }
+      .footer-inner { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a class="nav-logo" href="index.html">
+      <span class="nav-logo-title">The Empty Boat</span>
+      <span class="nav-logo-sub">A Healing Practice</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#sessions">Sessions</a></li>
+      <li><a href="hunyuan-qi-therapy.html">Philosophy</a></li>
+    </ul>
+    <a class="nav-cta" href="#book">Book a Session</a>
+  </nav>
+
+  <!-- HERO — no CTA buttons -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-tagline">
+        <span class="hero-tagline-line"></span>
+        <span class="hero-tagline-text">Hunyuan Qi Therapy &nbsp;·&nbsp; Zhineng Qigong &nbsp;·&nbsp; Qi Field Healing</span>
+        <span class="hero-tagline-line"></span>
+      </div>
+      <h1 class="hero-heading">Your body already<br>knows how to heal.</h1>
+      <p class="hero-subheading">A practice that works with your nature, not against it</p>
+      <div class="hero-divider"></div>
+      <p class="hero-body">Hunyuan Qi Therapy works with the organizing intelligence of the universal qi field to support deep, restorative healing — in-person in Tokyo or remotely, anywhere in the world.</p>
+      <div class="hero-tags">
+        <span class="hero-tag">Qi Field Healing</span>
+        <span class="hero-tag">In-Person · Tokyo</span>
+        <span class="hero-tag">Remote · Worldwide</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT IS IT -->
+  <section class="what" id="what">
+    <div class="what-inner">
+      <p class="section-eyebrow">What is it</p>
+      <h2 class="section-heading">Hunyuan Qi Therapy</h2>
+      <div class="section-divider"></div>
+      <p class="body-p">Hunyuan Qi Therapy is a practice rooted in Zhineng Qigong Science — one of the most sophisticated qigong lineages in modern China, developed by Professor Dr. Pang Ming in the 1980s. It works with Qi, the vital energy that flows through all living things, to support physical healing, emotional balance, and mental clarity.</p>
+      <p class="body-p">Unlike approaches that only address symptoms, HYQT works at the root. Rather than treating symptoms in isolation, it works directly with the organizing intelligence of the universal qi field, creating the conditions for deep, restorative healing. It combines the therapist's directed energy work with practical movement, meditation, and breathing methods that become part of your own daily life.</p>
+      <p class="body-p body-p-accent">Think of it as recharging your body's internal battery — and learning how to keep it full.</p>
+    </div>
+  </section>
+
+  <!-- WHAT TO EXPECT -->
+  <section class="expect" id="sessions">
+    <div class="expect-inner">
+      <p class="section-eyebrow">What to expect</p>
+      <h2 class="section-heading">What happens in a session</h2>
+      <div class="section-divider"></div>
+      <p class="body-p">Sessions are relaxed, open, and unhurried. Physical, emotional, and energetic dimensions are not separated — healing moves through all layers simultaneously.</p>
+      <div class="steps-grid">
+        <div class="step">
+          <div class="step-n">01</div>
+          <div class="step-t">We Talk</div>
+          <div class="step-d">We begin with a short conversation about what you are experiencing and what you would like to shift.</div>
+        </div>
+        <div class="step">
+          <div class="step-n">02</div>
+          <div class="step-t">Energy Work</div>
+          <div class="step-d">I establish the Qi field and work with the specific patterns present — physical, emotional, and energetic.</div>
+        </div>
+        <div class="step">
+          <div class="step-n">03</div>
+          <div class="step-t">Guided Practice</div>
+          <div class="step-d">I share Zhineng Qigong movements, meditations, or breathing methods tailored to your condition.</div>
+        </div>
+        <div class="step">
+          <div class="step-n">04</div>
+          <div class="step-t">You Take It Home</div>
+          <div class="step-d">You leave with simple practices to continue on your own. The deepest healing happens in daily life.</div>
+        </div>
+      </div>
+      <p class="expect-note">Sessions are available in person in Taito, Tokyo — or remotely for clients anywhere in the world. Qi is not bound by space.</p>
+    </div>
+  </section>
+
+  <!-- WHO IT'S FOR -->
+  <section class="who">
+    <div class="who-inner">
+      <p class="section-eyebrow">Who it is for</p>
+      <h2 class="section-heading">Is this for you?</h2>
+      <div class="section-divider"></div>
+      <p class="body-p">Hunyuan Qi Therapy may be for you if you are feeling stuck, unwell, or disconnected — and you are open to an approach that works with your whole self, not just one part of you.</p>
+      <div class="who-grid">
+        <div class="who-card">
+          <div class="who-glyph">&#9678;</div>
+          <p>Living with chronic pain, illness, or fatigue that has not fully responded to conventional treatment</p>
+        </div>
+        <div class="who-card">
+          <div class="who-glyph">&#9672;</div>
+          <p>Dealing with stress, anxiety, burnout, or emotional heaviness you cannot seem to shake</p>
+        </div>
+        <div class="who-card">
+          <div class="who-glyph">&#9673;</div>
+          <p>Going through a difficult life transition and seeking deeper healing and inner stability</p>
+        </div>
+        <div class="who-card">
+          <div class="who-glyph">&#10022;</div>
+          <p>Curious about energy medicine and ready to explore what is possible beyond the physical</p>
+        </div>
+      </div>
+      <p class="who-note">No prior knowledge of Qi or Qigong is needed. All you need is openness.</p>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section class="benefits">
+    <div class="benefits-inner">
+      <p class="section-eyebrow">Benefits</p>
+      <h2 class="section-heading">What people experience</h2>
+      <div class="section-divider"></div>
+      <ul class="benefit-list">
+        <li>Reduction in physical pain and chronic tension</li>
+        <li>Calmer, more stable emotional state</li>
+        <li>Improved sleep and restored energy levels</li>
+        <li>Greater mental clarity and inner quiet</li>
+        <li>A sense of groundedness and ease with existence</li>
+        <li>Tools and practices for lasting self-healing</li>
+        <li>Complementary support alongside medical treatment</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- MY APPROACH -->
+  <section class="approach" id="about">
+    <div class="approach-left">
+      <p class="section-eyebrow">The practitioner</p>
+      <h2 class="section-heading">My approach</h2>
+      <div class="section-divider"></div>
+      <p class="body-p">I was not the most robust child. Chronic fatigue, frequent illness, a weaker constitution — this was simply my baseline. I discovered Qigong in my early adulthood and it completely transformed me, from weak to energized and athletic. Since then, my health has always been improving. It is almost as if I am aging in reverse.</p>
+    </div>
+    <div class="approach-right">
+      <p class="body-p" style="padding-top: 4.2rem;">My values are full acceptance. This world pressures us to fight our own nature, to dip into our reserves, to forget who we are. I hold space for you to come home — to your health, to yourself, to ease with existence.</p>
+      <p class="body-p">In Hunyuan Qi Therapy, we do not treat symptoms. We treat people. Each session is tailored to you and addresses you at your deepest levels.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <div class="faq-inner">
+      <p class="section-eyebrow">Common questions</p>
+      <h2 class="section-heading">FAQ</h2>
+      <div class="section-divider"></div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <p class="faq-q">Do I need to believe in Qi for this to work?</p>
+          <p class="faq-a">No. Many people arrive with skepticism and still experience real results. Openness is more useful than belief — the practice does the rest.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Is this a replacement for medical treatment?</p>
+          <p class="faq-a">No. HYQT works best alongside conventional medicine, not instead of it. Many people find it enhances the effects of other treatments. Always continue working with your doctor.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">How does a remote session work?</p>
+          <p class="faq-a">Online sessions are just as effective as in-person ones. Qi is not limited by distance. We connect via video and the session follows the same structure.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">How many sessions will I need?</p>
+          <p class="faq-a">This varies by person and condition. Some notice shifts after one session; others benefit from ongoing practice. We will discuss what makes sense for you in the intro call.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">How should I prepare?</p>
+          <p class="faq-a">Nothing special is needed. Come as you are. Wear comfortable clothing, find a quiet space if joining remotely, and bring any intentions or questions you have.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING SECTION -->
+  <section class="booking" id="book">
+    <div class="booking-glow"></div>
+    <div class="booking-inner">
+      <div class="booking-header">
+        <div class="hero-tagline" style="justify-content:center;">
+          <span class="hero-tagline-line"></span>
+          <span class="hero-tagline-text">Begin Your Journey</span>
+          <span class="hero-tagline-line"></span>
+        </div>
+        <h2 class="cta-heading">Ready to<br>begin?</h2>
+        <p class="cta-subheading">In-person · Remote · Worldwide</p>
+        <p class="cta-body">Begin with a free 30-minute conversation. We will talk about what you are experiencing, answer your questions, and see if this is a good fit.</p>
+      </div>
+      <div class="cal-embed-wrap">
+        <div style="width:100%;height:100%;overflow:scroll" id="my-cal-inline"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cal.com embed script -->
+  <script type="text/javascript">
+    (function (C, A, L) {
+      let p = function (a, ar) { a.q.push(ar); };
+      let d = C.document;
+      C.Cal = C.Cal || function () {
+        let cal = C.Cal;
+        let ar = arguments;
+        if (!cal.loaded) {
+          cal.ns = {};
+          cal.q = cal.q || [];
+          d.head.appendChild(d.createElement("script")).src = A;
+          cal.loaded = true;
+        }
+        if (ar[0] === L) {
+          const api = function () { p(api, arguments); };
+          const namespace = ar[1];
+          api.q = api.q || [];
+          if (typeof namespace === "string") {
+            cal.ns[namespace] = cal.ns[namespace] || api;
+            p(cal.ns[namespace], ar);
+            p(cal, ["-", namespace, ar]);
+          } else {
+            p(cal, ar);
+            p(cal, ["-", ar]);
+          }
+          return;
+        }
+        p(cal, ar);
+      };
+    })(window, "https://app.cal.com/embed/embed.js", "init");
+
+    Cal("init", "mattgoolsby-qigong", { origin: "https://app.cal.com" });
+
+    Cal.ns["mattgoolsby-qigong"]("inline", {
+      elementOrSelector: "#my-cal-inline",
+      calLink: "mattgoolsby-qigong",
+      layout: "month_view",
+      config: { theme: "dark" }
+    });
+
+    Cal.ns["mattgoolsby-qigong"]("ui", {
+      theme: "dark",
+      cssVarsPerTheme: {
+        dark: {
+          "cal-brand": "#C9973A",
+          "cal-bg": "#0A0F1A",
+          "cal-bg-subtle": "#0D2247",
+          "cal-bg-muted": "#1B3A6B",
+          "cal-border": "rgba(201,151,58,0.2)",
+          "cal-border-subtle": "rgba(245,240,232,0.08)",
+          "cal-border-booker": "rgba(201,151,58,0.15)",
+          "cal-text": "#F5F0E8",
+          "cal-text-subtle": "#EDE4D0",
+          "cal-text-muted": "rgba(237,228,208,0.5)",
+        }
+      },
+      hideEventTypeDetails: false,
+    });
+  </script>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <a href="index.html" class="footer-logo">
+        <span class="footer-logo-title">The Empty Boat</span>
+        <span class="footer-logo-sub">A Healing Practice</span>
+      </a>
+      <nav class="footer-nav">
+        <a href="hunyuan-qi-therapy.html">Philosophy</a>
+        <a href="index.html#sessions">Sessions</a>
+        <a href="index.html#about">About</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 The Empty Boat · Tokyo, Japan · Remote sessions available worldwide</p>
+    </div>
+  </footer>
+
+</body>
+</html>
